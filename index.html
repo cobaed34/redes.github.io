@@ -200,6 +200,44 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .game-navigation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background-color: #1e2b38;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .current-game {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 0 5px;
+        }
     </style>
 </head>
 <body>
@@ -489,6 +527,363 @@
             <button class="reset-btn">Reiniciar Quiz</button>
             
             <div class="result"></div>
+        </div>
+
+        <!-- Nueva sección de Conceptos de Redes -->
+        <div class="network-concepts">
+            <h2 style="text-align: center; margin: 30px 0; color: #2c3e50;">Conceptos de Redes</h2>
+            <div class="topologies">
+                <!-- Pregunta sobre LAN -->
+                <div class="topology-item" data-correct="local">
+                    <div class="topology-info">
+                        <h3>Red LAN</h3>
+                        <p class="question">¿Qué tipo de red es una LAN?</p>
+                        <div class="options">
+                            <div class="option" data-value="local">Red de Área Local</div>
+                            <div class="option" data-value="amplia">Red de Área Amplia</div>
+                            <div class="option" data-value="personal">Red de Área Personal</div>
+                            <div class="option" data-value="metropolitana">Red de Área Metropolitana</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta sobre DHCP -->
+                <div class="topology-item" data-correct="asignar-ip">
+                    <div class="topology-info">
+                        <h3>DHCP</h3>
+                        <p class="question">¿Cuál es la función principal del DHCP?</p>
+                        <div class="options">
+                            <div class="option" data-value="asignar-ip">Asignar direcciones IP automáticamente</div>
+                            <div class="option" data-value="seguridad">Proporcionar seguridad en la red</div>
+                            <div class="option" data-value="enrutar">Enrutar paquetes entre redes</div>
+                            <div class="option" data-value="filtrar">Filtrar tráfico de red</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta sobre WAN -->
+                <div class="topology-item" data-correct="internet">
+                    <div class="topology-info">
+                        <h3>Red WAN</h3>
+                        <p class="question">¿Cuál es el ejemplo más común de una WAN?</p>
+                        <div class="options">
+                            <div class="option" data-value="internet">Internet</div>
+                            <div class="option" data-value="oficina">Red de oficina</div>
+                            <div class="option" data-value="bluetooth">Conexión Bluetooth</div>
+                            <div class="option" data-value="casa">Red doméstica</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta sobre PAN -->
+                <div class="topology-item" data-correct="bluetooth">
+                    <div class="topology-info">
+                        <h3>Red PAN</h3>
+                        <p class="question">¿Qué tecnología es típica de una PAN?</p>
+                        <div class="options">
+                            <div class="option" data-value="bluetooth">Bluetooth</div>
+                            <div class="option" data-value="wifi">Wi-Fi</div>
+                            <div class="option" data-value="fibra">Fibra óptica</div>
+                            <div class="option" data-value="satelite">Conexión satelital</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta sobre DNS -->
+                <div class="topology-item" data-correct="nombres">
+                    <div class="topology-info">
+                        <h3>DNS</h3>
+                        <p class="question">¿Qué función realiza el DNS?</p>
+                        <div class="options">
+                            <div class="option" data-value="nombres">Traducir nombres de dominio a IP</div>
+                            <div class="option" data-value="enrutar">Enrutar paquetes</div>
+                            <div class="option" data-value="asignar">Asignar IPs</div>
+                            <div class="option" data-value="firewall">Proteger la red</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta sobre MAN -->
+                <div class="topology-item" data-correct="ciudad">
+                    <div class="topology-info">
+                        <h3>Red MAN</h3>
+                        <p class="question">¿Qué área cubre típicamente una MAN?</p>
+                        <div class="options">
+                            <div class="option" data-value="ciudad">Una ciudad</div>
+                            <div class="option" data-value="edificio">Un edificio</div>
+                            <div class="option" data-value="pais">Un país</div>
+                            <div class="option" data-value="casa">Una casa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nueva sección de Configuración y Diagnóstico de Redes -->
+        <div class="network-diagnostics" style="display: none;">
+            <header>
+                <h1>Configuración y Diagnóstico de Redes</h1>
+                <p class="description">Prueba tus conocimientos sobre comandos y herramientas de red.</p>
+            </header>
+            
+            <div class="quiz-container">
+                <div class="topologies">
+                    <!-- Pregunta sobre Ping -->
+                    <div class="topology-item" data-correct="conectividad">
+                        <div class="topology-info">
+                            <h3>Comando Ping</h3>
+                            <p class="question">¿Qué comprueba principalmente el comando ping?</p>
+                            <div class="options">
+                                <div class="option" data-value="conectividad">Conectividad básica</div>
+                                <div class="option" data-value="velocidad">Velocidad de red</div>
+                                <div class="option" data-value="dns">Resolución DNS</div>
+                                <div class="option" data-value="puertos">Puertos abiertos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Máscara de Red -->
+                    <div class="topology-item" data-correct="subred">
+                        <div class="topology-info">
+                            <h3>Máscara de Red</h3>
+                            <p class="question">¿Qué determina la máscara de red?</p>
+                            <div class="options">
+                                <div class="option" data-value="subred">Tamaño de la subred</div>
+                                <div class="option" data-value="velocidad">Velocidad de conexión</div>
+                                <div class="option" data-value="seguridad">Nivel de seguridad</div>
+                                <div class="option" data-value="gateway">Puerta de enlace</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Traceroute -->
+                    <div class="topology-item" data-correct="saltos">
+                        <div class="topology-info">
+                            <h3>Traceroute/Tracert</h3>
+                            <p class="question">¿Qué muestra el comando traceroute?</p>
+                            <div class="options">
+                                <div class="option" data-value="saltos">Saltos hasta el destino</div>
+                                <div class="option" data-value="puertos">Puertos abiertos</div>
+                                <div class="option" data-value="archivos">Archivos compartidos</div>
+                                <div class="option" data-value="usuarios">Usuarios conectados</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Puerto -->
+                    <div class="topology-item" data-correct="80">
+                        <div class="topology-info">
+                            <h3>Puertos Comunes</h3>
+                            <p class="question">¿Cuál es el puerto predeterminado para HTTP?</p>
+                            <div class="options">
+                                <div class="option" data-value="80">Puerto 80</div>
+                                <div class="option" data-value="443">Puerto 443</div>
+                                <div class="option" data-value="21">Puerto 21</div>
+                                <div class="option" data-value="25">Puerto 25</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre IPv6 -->
+                    <div class="topology-item" data-correct="128">
+                        <div class="topology-info">
+                            <h3>IPv6</h3>
+                            <p class="question">¿Cuántos bits tiene una dirección IPv6?</p>
+                            <div class="options">
+                                <div class="option" data-value="32">32 bits</div>
+                                <div class="option" data-value="64">64 bits</div>
+                                <div class="option" data-value="128">128 bits</div>
+                                <div class="option" data-value="256">256 bits</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Netstat -->
+                    <div class="topology-item" data-correct="conexiones">
+                        <div class="topology-info">
+                            <h3>Netstat</h3>
+                            <p class="question">¿Qué muestra el comando netstat?</p>
+                            <div class="options">
+                                <div class="option" data-value="conexiones">Conexiones de red activas</div>
+                                <div class="option" data-value="wifi">Redes WiFi disponibles</div>
+                                <div class="option" data-value="velocidad">Velocidad de red</div>
+                                <div class="option" data-value="archivos">Archivos de red</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Gateway -->
+                    <div class="topology-item" data-correct="router">
+                        <div class="topology-info">
+                            <h3>Gateway Predeterminado</h3>
+                            <p class="question">¿Qué dispositivo suele ser el gateway predeterminado?</p>
+                            <div class="options">
+                                <div class="option" data-value="router">Router</div>
+                                <div class="option" data-value="switch">Switch</div>
+                                <div class="option" data-value="pc">PC</div>
+                                <div class="option" data-value="servidor">Servidor</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre NAT -->
+                    <div class="topology-item" data-correct="traduccion">
+                        <div class="topology-info">
+                            <h3>NAT</h3>
+                            <p class="question">¿Qué hace NAT?</p>
+                            <div class="options">
+                                <div class="option" data-value="traduccion">Traduce direcciones IP</div>
+                                <div class="option" data-value="encripta">Encripta datos</div>
+                                <div class="option" data-value="acelera">Acelera la red</div>
+                                <div class="option" data-value="bloquea">Bloquea accesos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="check-btn">Verificar Respuestas</button>
+                <button class="reset-btn">Reiniciar Quiz</button>
+                
+                <div class="result"></div>
+            </div>
+        </div>
+
+        <!-- Sistema de navegación entre juegos -->
+        <div class="game-navigation" style="text-align: center; padding: 20px; margin-bottom: 20px;">
+            <button class="nav-btn prev-btn">◀ Juego Anterior</button>
+            <span style="margin: 0 15px; color: #2c3e50; font-weight: bold;">
+                Sección <span class="current-game">1</span>/4
+            </span>
+            <button class="nav-btn next-btn">Siguiente Juego ▶</button>
+        </div>
+
+        <!-- Nueva sección de Seguridad en Redes -->
+        <div class="network-security" style="display: none;">
+            <header>
+                <h1>Seguridad en Redes</h1>
+                <p class="description">Pon a prueba tus conocimientos sobre seguridad en redes.</p>
+            </header>
+            
+            <div class="quiz-container">
+                <div class="topologies">
+                    <!-- Pregunta sobre Criptografía -->
+                    <div class="topology-item" data-correct="asimetrica">
+                        <div class="topology-info">
+                            <h3>Criptografía</h3>
+                            <p class="question">¿Qué tipo de criptografía usa claves públicas y privadas?</p>
+                            <div class="options">
+                                <div class="option" data-value="asimetrica">Asimétrica</div>
+                                <div class="option" data-value="simetrica">Simétrica</div>
+                                <div class="option" data-value="hash">Hash</div>
+                                <div class="option" data-value="bloque">De bloque</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre SSL/TLS -->
+                    <div class="topology-item" data-correct="https">
+                        <div class="topology-info">
+                            <h3>SSL/TLS</h3>
+                            <p class="question">¿Qué protocolo usa SSL/TLS?</p>
+                            <div class="options">
+                                <div class="option" data-value="https">HTTPS</div>
+                                <div class="option" data-value="ftp">FTP</div>
+                                <div class="option" data-value="telnet">Telnet</div>
+                                <div class="option" data-value="smtp">SMTP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Malware -->
+                    <div class="topology-item" data-correct="ransomware">
+                        <div class="topology-info">
+                            <h3>Malware</h3>
+                            <p class="question">¿Qué tipo de malware cifra tus archivos y pide rescate?</p>
+                            <div class="options">
+                                <div class="option" data-value="ransomware">Ransomware</div>
+                                <div class="option" data-value="spyware">Spyware</div>
+                                <div class="option" data-value="virus">Virus</div>
+                                <div class="option" data-value="gusano">Gusano</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Firewall -->
+                    <div class="topology-item" data-correct="aplicacion">
+                        <div class="topology-info">
+                            <h3>Firewall</h3>
+                            <p class="question">¿Qué capa del modelo OSI analiza un firewall de aplicación?</p>
+                            <div class="options">
+                                <div class="option" data-value="aplicacion">Capa 7 - Aplicación</div>
+                                <div class="option" data-value="red">Capa 3 - Red</div>
+                                <div class="option" data-value="transporte">Capa 4 - Transporte</div>
+                                <div class="option" data-value="enlace">Capa 2 - Enlace</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre VPN -->
+                    <div class="topology-item" data-correct="ipsec">
+                        <div class="topology-info">
+                            <h3>VPN</h3>
+                            <p class="question">¿Qué protocolo de seguridad usa comúnmente una VPN?</p>
+                            <div class="options">
+                                <div class="option" data-value="ipsec">IPSec</div>
+                                <div class="option" data-value="http">HTTP</div>
+                                <div class="option" data-value="ftp">FTP</div>
+                                <div class="option" data-value="smtp">SMTP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Autenticación -->
+                    <div class="topology-item" data-correct="factores">
+                        <div class="topology-info">
+                            <h3>Autenticación</h3>
+                            <p class="question">¿Qué es la autenticación de dos factores?</p>
+                            <div class="options">
+                                <div class="option" data-value="factores">Usar dos métodos de verificación</div>
+                                <div class="option" data-value="doble">Ingresar la contraseña dos veces</div>
+                                <div class="option" data-value="usuarios">Usar dos usuarios diferentes</div>
+                                <div class="option" data-value="dispositivos">Usar dos dispositivos iguales</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Certificados -->
+                    <div class="topology-item" data-correct="ssl">
+                        <div class="topology-info">
+                            <h3>Certificados Digitales</h3>
+                            <p class="question">¿Qué tipo de certificado usa HTTPS?</p>
+                            <div class="options">
+                                <div class="option" data-value="ssl">Certificado SSL/TLS</div>
+                                <div class="option" data-value="pgp">Certificado PGP</div>
+                                <div class="option" data-value="ssh">Certificado SSH</div>
+                                <div class="option" data-value="dns">Certificado DNS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta sobre Ataques -->
+                    <div class="topology-item" data-correct="mitm">
+                        <div class="topology-info">
+                            <h3>Ataques Comunes</h3>
+                            <p class="question">¿Qué significa MITM?</p>
+                            <div class="options">
+                                <div class="option" data-value="mitm">Man in the Middle</div>
+                                <div class="option" data-value="ddos">Denial of Service</div>
+                                <div class="option" data-value="brute">Brute Force</div>
+                                <div class="option" data-value="phishing">Phishing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="check-btn">Verificar Respuestas</button>
+                <button class="reset-btn">Reiniciar Quiz</button>
+                
+                <div class="result"></div>
+            </div>
         </div>
     </div>
     
